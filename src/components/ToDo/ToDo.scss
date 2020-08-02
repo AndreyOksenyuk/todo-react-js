@@ -1,0 +1,133 @@
+*{
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+body{
+   background-color: rgb(250, 250, 250);
+}
+.ToDo{
+   max-width: 400px; 
+   margin: 0 auto;                                                                 
+}
+
+.todoItems{
+   
+   &__inner{
+      position: relative;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      border: 1px solid #ccc;
+      margin: 5px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+      z-index: 2;
+      .todoNum {
+         width: 10%;
+         font-size: 18px;
+         font-weight: 700;
+         color: #250c69;
+         user-select: none;
+      }
+      .checkbox{
+         width: 70%;
+      }
+      .removeTodo{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 10%;
+         background-color: #fff;
+      }
+      .Date{
+         position: absolute;
+         left: 50px;
+         width: 100px;
+         height: 42px;
+         color: #fff;
+         background-color: #3f51b5;
+         border-radius: 10px 10px 0 0;
+         transition: all 0.3s linear;
+         user-select: none;
+         z-index: -1;
+      }         
+   }
+}
+
+.calendarIco {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+   width: 10%;
+   height: 42px;
+   background-color: rgb(255, 255, 255);
+   &::before{
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 2px;
+      height: 40px;
+      background-color: #ccc;
+   }
+}
+
+#calendarSVG{
+   width: 30px;
+   height: 30px;
+   transition: fill 0.1s linear;
+   cursor: pointer;
+   &:hover{
+      fill: rgb(5, 146, 40);
+   }
+}
+
+.checkbox{
+   display: flex;
+   padding: 0 10px;
+   width: 310px;
+   background-color: rgb(240, 240, 240);
+}
+
+.Todo-completed{
+   text-decoration: line-through;
+     -ms-user-select: none;
+     -moz-user-select: none;
+     -khtml-user-select: none;
+     -webkit-user-select: none;
+}
+.Todo-nocompleted{
+   @extend .Todo-completed;
+   text-decoration: none;
+}
+
+#removeSVG{
+   fill: rgb(0, 73, 18);
+   width: 20px;
+   height: 20px;
+   cursor: pointer;
+   transition: fill 0.1s linear;
+   &:hover{
+      fill: rgb(182, 36, 36);
+   }
+}
+.MuiToolbar-root {
+   z-index: 10;
+   background-color: #3f51b5;
+}
+
+.headerContent{
+   position: absolute;
+   width: 100%;
+   height: 100vh;
+   padding-top: 70px;
+   background-color: #3f51b5;
+   transition: top .4s linear;
+   z-index: 3;
+   p{
+      font-size: 22px;
+      color: white;
+   }
+}
+
