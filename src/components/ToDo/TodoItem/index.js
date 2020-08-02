@@ -23,25 +23,33 @@ const TodoItem = (props) => {
 
    return (
       <div className='todoItems'>
-         {
-            todos.map((todo, index) => {
-               return (
-                  <div key={todo.id} className="todoItems__inner">
-                     <span className='todoNum'>{index + 1}</span>
-                     <GreenCheckbox
-                        todo={todo}
-                        changeCompleted={props.cangeCompleted}
-                     />
+         {todos.length > 0
+            ? <div>
+               {todos.map((todo, index) => {
+                  return (
+                     <div key={todo.id} className="todoItems__inner">
+                        <span className='todoNum'>{index + 1}</span>
+                        <GreenCheckbox
+                           todo={todo}
+                           changeCompleted={props.cangeCompleted}
+                        />
 
-                     <RemoveTodo id={todo.id} removeTodoAC={props.removeTodoAC} />
-                     <div className="calendarIco" onClick={() => showDateTime(todo.id)}>
-                        <DateSVG showDate={todo.showDate}/>
+                        <RemoveTodo id={todo.id} removeTodoAC={props.removeTodoAC} />
+                        <div className="calendarIco" onClick={() => showDateTime(todo.id)}>
+                           <DateSVG showDate={todo.showDate} />
+                        </div>
+                        <p className='Date' style={todo.showDate ? { top: '-42px' } : { top: 0 }}>{("" + (new Date(todo.id)).toLocaleString())}</p>
                      </div>
-                     <p className='Date' style={todo.showDate ? { top: '-42px' } : { top: 0 }}>{("" + (new Date(todo.id)).toLocaleString())}</p>
-                  </div>
-               )
-            })
+                  )
+               })
+               }
+            </div>
+
+            : <p className='NoTasks'>No tasks!!!</p>
+
+
          }
+
 
       </div>
    );
